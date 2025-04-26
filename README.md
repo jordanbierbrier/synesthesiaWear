@@ -11,7 +11,20 @@
 ---
 
 ## 📖 Project Overview
-**Synesthesia Wear** is a wearable device designed to **detect specific environmental sounds** (e.g., alarms, doorbells) and **alert the user** through sensory feedback like vibration. This enhances auditory awareness, especially for individuals in noisy environments or with hearing difficulties.
+
+**Synesthesia Wear** is a wearable device that improves users’ awareness of sounds within their environment.  
+The system consists of three main components:
+
+- **Bracelet:** A compact, wrist-worn device with built-in audio, Bluetooth, and vibration motor for customizable haptic feedback.
+- **Android App:** An interactive mobile application where users can:
+  - Assign haptic patterns to specific keywords or sounds.
+  - Customize vibration settings
+  - Enable or disable sounds dynamically
+- **Sound Processing Module:** A machine learning and audio processing system that:
+  - Detects specific environmental sounds (e.g., fire alarms, user names)
+  - Uses techniques like filtering and feature extraction for accurate sound recognition
+
+A **working prototype** successfully detected fire alarms and recognized several names in real-world environments.
 
 ---
 
@@ -54,8 +67,8 @@
 
 
 ## 📈 Future Improvements
-- Expand detectable sound library
-- Optimize model for faster inference
+- Further miniaturization of the bracelet hardware for enhanced wrist comfort
+- Integration of a higher-quality microphone to improve sound recognition accuracy
 
 ---
 
