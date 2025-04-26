@@ -18,24 +18,12 @@
 
 ## 🗂 Repository Structure
 
-| Folder/File           | Purpose                                                   |
+| Folder           | Purpose                                                   |
 |-----------------------|-----------------------------------------------------------|
-<!-- | `docs/`               | Documentation, design decisions, system architecture     |
-| `refs/`               | Reference papers and research resources                  |
-| `src/`                | Firmware source code, machine learning models             |
-| `test/`               | Unit tests and testing scripts                            |
-| `INSTALL.md`          | Step-by-step installation guide                           |
-| `CONTRIBUTING.md`     | Guidelines for contributing                               |
-| `CodeOfConduct.md`    | Code of conduct for contributors                          |
-| `ExceptionsGranted.md`| Special permissions and exception handling                | -->
+| `docs/`               | Documentation, design decisions, system architecture, presentation     |
+| `src/`                | Firmware source code, machine learning model, mobile application          |
 
----
 
-## ⚙️ Technologies Used
-<!-- - **C / C++**: Microcontroller firmware
-- **Python**: Machine learning and data processing
-- **TensorFlow Lite**: On-device ML model deployment
-- **LaTeX**: Documentation formatting -->
 
 ---
 
@@ -67,7 +55,6 @@
 
 ## 📈 Future Improvements
 - Expand detectable sound library
-- Add mobile app integration for notifications
 - Optimize model for faster inference
 
 ---
