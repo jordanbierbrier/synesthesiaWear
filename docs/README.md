@@ -1,23 +1,30 @@
-<Please keep the folder structure as given in the template repo.  We will
-discuss each artifact as we get to it in the course.  In some cases, like for
-the SRS, you should have a file of the same name.  For other cases, like the
-design documentation, you are required to document your design, but it may not
-be via a module guide and module interface specification documents.>
+# Documentation
 
-<The files and folders have been set-up with tex files that have external links
-so that cross-referencing is possible between documents.>
+This folder contains all documentation artifacts for the **Synesthesia Wear** project, including planning documents, requirements, system design, testing strategies, and user manuals.
 
-<The tex files Common.tex so that they can share definitions.>
+---
 
-<The files use Comments.tex so that the comments package can be used to embed
-comments into the generated pdf.  Comments can be set to false so that they do
-not appear.>
+## 📁 Folder Structure
 
-<None of the files are complete templates.  You will need to add extra
-information.  They are just intended to be a starting point.>
+- `DevelopmentPlan/`:  
+  Outlines the project development strategy, including scheduling, resource allocation, and task assignments.
 
-# Documentation folders
+- `HazardAnalysis/`:  
+  Documents a risk and hazard analysis associated with the system, identifying potential failures and mitigation strategies.
 
-The folders and files for this folder are as follows:
+- `Presentations/`:  
+  Contains presentation slides and materials used to communicate the project’s goals, progress, and final results.
 
-Describe ...
+- `ProblemStatementAndGoals/`:  
+  Describes the motivation for the project, the problem it addresses, and its high-level objectives.
+
+- `SRS/` (Software Requirements Specification):  
+  Details functional and non-functional requirements for the system, providing a basis for system design and validation.
+
+- `UserGuide/`:  
+  Provides end-user documentation explaining how to set up, operate, and troubleshoot the Synesthesia Wear system.
+
+- `VnVPlan/` (Verification and Validation Plan):  
+  Specifies how the system will be verified against its requirements and validated against user needs.
+
+---
