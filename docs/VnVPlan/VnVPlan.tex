@@ -1,0 +1,1592 @@
+\documentclass[12pt, titlepage]{article}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=black,
+    linkcolor=red,
+    urlcolor=blue
+}
+\usepackage[round]{natbib}
+\usepackage{enumitem}
+
+\input{../Comments}
+\input{../Common}
+
+\begin{document}
+
+\title{Synesthesia Wear: System Verification and Validation Plan for \progname{}} 
+\author{\authname}
+\date{\today}
+	
+\maketitle
+
+\pagenumbering{roman}
+
+\section{Revision History}
+
+\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
+\toprule {\bf Date } & {\bf Version} & {\bf Notes}\\
+\midrule
+11/1/2022 & 1.0 & Added Section 6 - Unit Test Description\\
+11/2/2022 & 1.1 & Added Section 5 - System Test Description\\
+11/2/2022 & 1.2 & Added Section 4 - Plan\\
+11/2/2022 & 1.3 & Added Section 3 - General Information\\
+11/2/2022 & 1.3 & Added Section 2 and 7 - Symbols and Appendix\\
+\bottomrule
+\end{tabularx}
+
+\newpage
+
+\tableofcontents
+
+\listoftables
+
+\newpage
+
+\section{Symbols, Abbreviations and Acronyms}
+
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{l l} 
+  \toprule		
+  \textbf{symbol} & \textbf{description}\\
+  \midrule 
+  Age groups & (15-30, 31-50, 51-75, 75+)\\
+  \bottomrule
+\end{tabular}\\
+
+\newpage
+
+\pagenumbering{arabic}
+
+\section{General Information}
+
+\subsection{General Information}
+
+Synesthesia Wear goal is to create a wearable product that allows users to get assisted with certain vocal tasks needing attention. These tasks can be generic or custom to the user as needed. The product will use signal processing to gather information and make a calculated prediction of the required action. This will let the user reach a peace of mind, knowing that if an important call is being directed towards the user then the Synesthesia Wear will alert them.
+
+\subsection{Objectives}
+
+The objective of the document is to prove correctness of the system requirements and the system design documents by using unit and system testing for adequate usability. Often software may have bugs that is experienced by end-user. The tests stated in the document will show signs of mitigating those issues which will ensure the underlying logic for the subsystems. This will be completed by rigorous unit testing on the functional and non-functional requirements. The code and the circuitry tested will be the underlying logic which interact with the database.
+
+\subsection{Relevant Documentation}
+
+The relevant documents include:
+\begin{itemize}
+\item Hazard Analysis Document
+\item Systems Design Document
+
+\end{itemize}
+
+
+\section{Plan}
+
+
+\subsection{Verification and Validation Team}
+
+The following project members are responsible for all procedures of the verification and validation. Responsibilities can be executing and writing tests :
+\begin{itemize}
+    \item Jordan Bierbrier 
+    \item Udeep Shah
+    \item Taranjit Lotey
+    \item Abraham Taha
+    \item Azriel Gingoyon
+\end{itemize}
+
+\subsection{SRS Verification Plan}
+
+The following plans indicate what our team intends to do for SRS verification:
+\begin{itemize}
+    \item \textbf{Review by teammates:} This plan will make each member go through each SRS and verify if each SRS is still within our usability scope.
+    \item \textbf{Review by stakeholders:} This will let our stakeholders to go through each SRS and get their perspective on the usage of the product.
+    \item \textbf{Checklist:} This plan involves using previously set checklists in our SRS document which will verify conditions being met.
+\end{itemize}
+
+\subsection{Design Verification Plan}
+
+The following show our plan to review the Design verification :
+\begin{itemize}
+    \item \textbf{Review by teammates:} The planned objective is to go through a high-fidelity prototype or functional prototype to verify if the design meets expected data of the SRS.
+    \item \textbf{Review by stakeholders:} This plan involves going through the design of the project with our stakeholders to see if the prototype meets expectations set in the SRS.
+    \item \textbf{Checklist:} This plan involves using previously set checklists in our SRS document which will verify conditions being met. 
+\end{itemize}
+
+\subsection{Implementation Verification Plan}
+The following plans indicate our Implementation verification plan:
+\begin{itemize}
+    \item \textbf{Static Analysis:} Test plans in sections 5.1.2 and 5.1.3 will be using this for test plans.
+    \item \textbf{Code Inspection:} This will be used for the test plans in section 5.1.1.
+    \item \textbf{Non-functional Testing:} Non-functional Requirements test plans are written in details in section 5.2.
+\end{itemize}
+
+\subsection{Automated Testing and Verification Tools}
+Automated Testing Tools:
+\begin{itemize}
+    \item \textbf{Mocha:} Mocha is the oldest testing frameworks for Node.js and hence will be used for our project. It has also evolved with Node.js and the JavaScript language, giving user the opportunity for callbacks, promises and async/await. 
+    \item \textbf{Mongo Orchestration:} Mongo Orchestration will be used to test our MongoDB database using the MongoDB process management.
+\end{itemize}
+Verification Tools:
+\begin{itemize}
+    \item \textbf{EsLint:} ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with a goal to make our code consistent and avoiding bugs.
+\end{itemize}
+
+\subsection{Software Validation Plan}
+
+Currently there is no available data that can help validate the software.
+
+
+
+
+\section{System Test Description}
+	
+\subsection{Tests for Functional Requirements}
+
+\begin{itemize}
+
+\item{FRT1}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR1 					
+
+\textbf{Initial State:} Powered on device with chosen classified keywords and no input signal
+					
+\textbf{Input:} Sound recordings containing 5 keywords
+					
+\textbf{Output:} Device produces 5 haptic feedback
+
+\textbf{Test Case Derivation:} Device needs to react once per keyword therefore 5 keywords should give 5 reactions.
+					
+\textbf{How test will be performed:} Tester will input randomized sound clips into the device and the device will react 5 times for the 5 keywords found in the sound clips
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT2}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR1 					
+
+\textbf{Initial State:} Powered on device with chosen classified keywords and no input signal 
+					
+\textbf{Input:} Sound clips in different environments
+					
+\textbf{Output:} Device produces haptic feedback
+
+\textbf{Test Case Derivation:} Device should be able to classify sound in different environments and still produce a reaction.
+					
+\textbf{How test will be performed:} Tester will input the same sound clips into the device in differing environments and manually check that the device reacts to the same amount of keywords in each environment 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item{FRT3}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR1 					
+
+\textbf{Initial State:} Powered on device with chosen classified keywords and no input signal 
+					
+\textbf{Input:} Sound clips
+					
+\textbf{Output:} Device produces haptic feedback at the different distances
+
+\textbf{Test Case Derivation:} Device should still be capable of producing a reaction at specified distances.
+					
+\textbf{How test will be performed:}  Tester will play same sound at specific distances away from device and check if device picks up sound and reacts
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT4}
+
+\textbf{Control:} Automatic
+
+\textbf{Refrences FR:} FR1 					
+
+\textbf{Initial State:} Powered on device with no input signal 
+					
+\textbf{Input:} N/A
+					
+\textbf{Output:} Device should output nothing
+
+\textbf{Test Case Derivation:} Because there is no input to the device there should also not be any output.
+					
+\textbf{How test will be performed:} Tester will keep device in a quiet environment and see if device reacts to no noise environments, exposing a false microphone input 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT5}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR2 					
+
+\textbf{Initial State:} Powered on device with chosen classified keywords and no input signal 
+					
+\textbf{Input:} Sound clips
+					
+\textbf{Output:} Haptic feedback from device
+
+\textbf{Test Case Derivation:} Device should be able to classify the input data even if there is noise in the input.
+					
+\textbf{How test will be performed:} Tester will input sound clips into the device while constant background noises are being played i.e with a ambient noise from a car in the background
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT6}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR2 					
+
+\textbf{Initial State:} Powered on device with chosen classified keywords and no input signal 
+					
+\textbf{Input:} Sound clips
+					
+\textbf{Output:} Haptic feedback from device
+
+\textbf{Test Case Derivation:} Device should provide a haptic feedback when it detects a keyword.
+					
+\textbf{How test will be performed:} Tester will speak into the device and determine if keywords are correctly classified by the device by observing that the device gives feedback when the keyword is spoken.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT7}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR2 					
+
+\textbf{Initial State:} Powered on device with chosen classified keywords and no input signal 
+					
+\textbf{Input:} Sound clips
+					
+\textbf{Output:} Haptic feedback
+
+\textbf{Test Case Derivation:} The device should be able to classify the keywords regardless of inputted voice.
+					
+\textbf{How test will be performed:} Tester will input sounds from different people saying same words to see if device can correctly classify between people 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT8}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR2 					
+
+\textbf{Initial State:} Powered on device with chosen classified keywords and no input signal  
+					
+\textbf{Input:} Sound clips
+					
+\textbf{Output:} N/A
+
+\textbf{Test Case Derivation:} The soung recognition algorithim should be able to correctly classify similar words as not being the keyword and not provide a reaction.
+					
+\textbf{How test will be performed:} Tester will input words that rhyme with keyword or sound similar to device can correctly classify as not the keyword
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT9}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR3 					
+
+\textbf{Initial State:} Powered on device with classified keywords 
+					
+\textbf{Input:} New keywords classifications, Sound clip
+					
+\textbf{Output:} Haptic Feedback
+
+\textbf{Test Case Derivation:} Device should recognize the new keywords and correctly react to the new words.
+					
+\textbf{How test will be performed:} Tester will change the keyword classification of the device and input the sound clip with the newly set keyword. Tester will determine if the device correctly reacts to the spoken keyword.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT10}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR3 					
+
+\textbf{Initial State:} Powered on device with classified keywords
+					
+\textbf{Input:} New keywords classifications, Sound clip
+					
+\textbf{Output:} No output
+
+\textbf{Test Case Derivation:} Once a keyword is no longer classified the device should no longer provide an output for that keyword.
+					
+\textbf{How test will be performed:} Tester will change the keyword and then check to see that the prior set keyword no longer causes the device to react.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT11}
+
+\textbf{Control:} Manual 
+
+\textbf{Refrences FR:} FR3 					
+
+\textbf{Initial State:} Powered on device with classified keywords
+					
+\textbf{Input:} Remove all classified keywords, Sound clip
+					
+\textbf{Output:} No output
+
+\textbf{Test Case Derivation:} If there are no chosen keywords classified the device should not produce any output.
+					
+\textbf{How test will be performed:} Tester will delete all classifications and check that device never reacts
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT12}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR3 					
+
+\textbf{Initial State:} Powered on device with no inputs
+					
+\textbf{Input:} Keyword Classifications, Sound clip
+					
+\textbf{Output:} Haptic Feedback
+
+\textbf{Test Case Derivation:} As keywords are classified the device should now react to those chosen keywords.
+					
+\textbf{How test will be performed:}Tester will add x amount of classifications sequentially then input those x keywords (in any order) to see device correctly reacts to all keywords
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT13}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR3 					
+
+\textbf{Initial State:} Powered on device with no inputs
+					
+\textbf{Input:} Keyword Classifications, Sound clip, Reboot Device
+					
+\textbf{Output:} Haptic Feedback
+
+\textbf{Test Case Derivation:} Device should still retain all chosen keywords in the event of a reboot or a power off.
+					
+\textbf{How test will be performed:} Tester will set the classification then reboot the device and check that the keywords are still correctly reacted to. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT14}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR4 					
+
+\textbf{Initial State:} Powered on device with keyword classifications
+					
+\textbf{Input:} Sound Clip
+					
+\textbf{Output:} Haptic Feedback
+
+\textbf{Test Case Derivation:} Haptic feedback should be outputted by the device when detecting a keyword.
+					
+\textbf{How test will be performed:} Tester will input a sound clip to the device which contains a keyword. The tester will be wearing the device and will manually ensure that the device provides haptic feedback. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT15}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR4 					
+
+\textbf{Initial State:} Powered on device with keyword classifications
+					
+\textbf{Input:} Sound Clip
+					
+\textbf{Output:} Haptic Feedback
+
+\textbf{Test Case Derivation:} Haptic feedback needs to be easily recognizable by the average user.
+					
+\textbf{How test will be performed:} Tester will repeat the same test with a sample size of 10 people and check if all the participants can notice the haptic feedback from the device. A total of 9/10 participants must conclude that they have felt the feedback for the test to be a success.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT16}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR4 					
+
+\textbf{Initial State:} Powered on device with keyword classifications
+					
+\textbf{Input:} Sound Clip
+					
+\textbf{Output:} Haptic Feedback
+
+\textbf{Test Case Derivation:} Users need to be able to feel the haptic feedback through numerous wearing patterns of the device.
+					
+\textbf{How test will be performed:} Tester will wear device at different orientations and places along wrist and keyword will be inputted to ensure device can provide noticeable feedback to user at different positions on wrist
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT17}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR4 					
+
+\textbf{Initial State:} Powered on device with keyword classifications
+					
+\textbf{Input:} Sound Clip
+					
+\textbf{Output:} Haptic Feedback
+
+\textbf{Test Case Derivation:} Haptic feedback should be strong enough that it can be felt through clothing articles.
+					
+\textbf{How test will be performed:} Tester will wear device on top of clothing article on wrist and keyword will be inputted to verify sufficient feedback from device to the user
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT18}
+
+\textbf{Control:} Manual 
+
+\textbf{Refrences FR:} FR5 					
+
+\textbf{Initial State:} Powered on device with keyword classifications
+					
+\textbf{Input:} Sound Clip
+					
+\textbf{Output:} Haptic Feedback
+
+\textbf{Test Case Derivation:} When device recognizes a keyword it should react with haptic feedback in realtime.
+					
+\textbf{How test will be performed:} Tester will input sound clip to device that contains a specific keyword and will manually ensure that device provides specific corresponding haptic feedback. Test is repeated 10 times to ensure consistent haptic feedback. Test is a success if 9/10 times the correct haptic feedback is recorded.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item{FRT19}
+
+\textbf{Control:} Manual
+
+\textbf{Refrences FR:} FR5 					
+
+\textbf{Initial State:} Powered on device with no keyword classifications
+					
+\textbf{Input:} Keyword classifications, Sound Clip
+					
+\textbf{Output:} Distinct haptic feedback for distint keywoords
+
+\textbf{Test Case Derivation:} Device should have compatability for five different keywords and should provide unique haptic feedback patterns for each of the keywords.
+					
+\textbf{How test will be performed:} Tester will add multiple keywords to the device. Following, the tester will input sound that matches the keyword and manually ensure each haptic feedback is different.
+
+
+\end{itemize}
+
+\subsection{Tests for Nonfunctional Requirements}
+
+\begin{itemize}
+
+
+\item{NFRT1}
+
+\textbf{Type:} Performance
+
+\textbf{Refrences} NFR1
+					
+\textbf{Initial State:} Unloaded Application
+					
+\textbf{Input/Condition:} Open Application
+					
+\textbf{Output/Result:} Application Loads up
+					
+\textbf{How test will be performed:} Participants will open the application and manually check to see that a home page is loaded on opening of the application. Users should not be required to provide any input after initiating the opening of the application to get navigated to the home page
+
+\item{NFRT2}
+
+\textbf{Type:} Performance
+
+\textbf{Refrences} NFR1
+					
+\textbf{Initial State:} Unloaded Application
+					
+\textbf{Input/Condition:} Open Application, click pair button
+					
+\textbf{Output/Result:} Application pairing page
+					
+\textbf{How test will be performed:} Participants should be able to identify the option to pair the external device with the application within the home page. Users will be tested to see if they can identify the pairing option within 10 seconds. Test will be performed manually with a tester observing that the users can meet these constraints.
+
+\item{NFRT3}
+
+\textbf{Type:} Manual
+
+\textbf{Refrences} NFR1
+					
+\textbf{Initial State:} Unloaded Application
+					
+\textbf{Input/Condition:} Open Application
+					
+\textbf{Output/Result:} N/A
+					
+\textbf{How test will be performed:} Application will be run and the tester will manually check to ensure that the different buttons are color coded based on similar functionalities.
+
+
+\item{NFRT4}
+
+\textbf{Type:} Performance 
+
+\textbf{Refrences} NFR1
+					
+\textbf{Initial State:} Open Application
+					
+\textbf{Input/Condition:} Click Pair Button
+					
+\textbf{Output/Result:} Application goes to pairing page
+					
+\textbf{How test will be performed:} Tester will launch the application and check to see if clicking the pair button on the homepage proceeds the application to a pairing page.
+
+\item{NFRT5}
+
+\textbf{Type:} Performance
+
+\textbf{Refrences} NFR1
+					
+\textbf{Initial State:} Open Application
+					
+\textbf{Input/Condition:} Click Keyword Selection Button
+					
+\textbf{Output/Result:} Application goes to keyword selection page
+					
+\textbf{How test will be performed:} Tester will launch the application and check to see if clicking the keyword selector button proceeds the application from the homepage to the keyword configurations page.
+
+\item{NFRT6}
+
+\textbf{Type:} Manual
+
+\textbf{Refrences} NFR1
+					
+\textbf{Initial State:} Turned off wearable device
+					
+\textbf{Input/Condition:} N/A
+					
+\textbf{Output/Result:} N/A
+					
+\textbf{How test will be performed:} A survey will be conducted to a group of 10 participants and they will rate the finish of the product out of 10, they will also rate the accessibility/findability of the buttons on a scale of 10. They will also be asked about the distinguishability of the charging port and its ease of use.  Answers will be averaged out and an average score of 8 will be considered a pass for the test. 
+
+\item{NFRT7}
+
+\textbf{Type:} Manual
+
+\textbf{Refrences} NFR2
+					
+\textbf{Initial State:} Opened Application
+					
+\textbf{Input/Condition:} N/A
+					
+\textbf{Output/Result:} N/A
+					
+\textbf{How test will be performed:} The style requirements of the device/application will all be tested through a participant study where they will be asked the following questions see appendix 7.2.7. An average score of 4 out of all the questions from the participants will be considered a pass.
+
+\item{NFRT8}
+
+\textbf{Type:} Performance
+
+\textbf{Refrences} NFR3
+					
+\textbf{Initial State:} Unopened Application, Unpaired device
+					
+\textbf{Input/Condition:} Open application, click pair button on both device and application
+					
+\textbf{Output/Result:} Paired Screen
+					
+\textbf{How test will be performed:} The final product will be given to users from multiple different age groups and asked to open the application and connect the wearable device to the application over bluetooth. Testers will take note of any issues that arise and record them.
+
+\item{NFRT9}
+
+\textbf{Type:} Security Test
+
+\textbf{Refrences} NFR3
+					
+\textbf{Initial State:} Pairing Screen
+					
+\textbf{Input/Condition:} Begin pairing
+					
+\textbf{Output/Result:} Alert Message
+					
+\textbf{How test will be performed:} Tester will attempt to pair the device without pressing the pairing button on the device. Tester will then check to see if the application alerts the user that a device is not found.
+
+\item{NFRT10}
+
+\textbf{Type:} Security Test
+
+\textbf{Refrences} NFR3
+					
+\textbf{Initial State:} Login page of application
+					
+\textbf{Input/Condition:} Username and Password
+					
+\textbf{Output/Result:} Alert Message
+					
+\textbf{How test will be performed:} Tester will attempt to log in with an unregistered account. Check to see that the program correctly identifies that the account does not exist and prompts the users to try again or register an account.
+
+\item{NFRT11}
+
+\textbf{Type:} Stress Test
+
+\textbf{Refrences} NFR3
+					
+\textbf{Initial State:} Keyword configuration page
+					
+\textbf{Input/Condition:} Invalid Keyword
+					
+\textbf{Output/Result:} Alert Message
+					
+\textbf{How test will be performed:} Tester will attempt to configure an unrecognizable keyword. Check to see that the program alerts the users that the keyword is not supported. 
+
+\item{NFRT12} 
+
+\textbf{Type:} Manual
+
+\textbf{Refrences} NFR4
+					
+\textbf{Initial State:} Application Home Screen
+					
+\textbf{Input/Condition:} Click keyword selection button
+					
+\textbf{Output/Result:} Keyword configuration screen
+					
+\textbf{How test will be performed:} Tester will check that the application has a page that allows the configuration of different keywords. This will be done manually and newly inputted keywords will be spoken and the appropriate reaction from the device will be recorded. 
+
+\item{NFRT13}
+
+\textbf{Type:} Manual
+
+\textbf{Refrences} NFR4
+					
+\textbf{Initial State:} Setup page
+					
+\textbf{Input/Condition:} Preferred Language
+					
+\textbf{Output/Result:} Application translated to preferred language
+					
+\textbf{How test will be performed:} Tester will check that the application prompts the user to choose a preferred language when setting up the device. This will be done by manually setting up a new device and visually checking if the prompt appears.
+
+\item{NFRT14}
+
+\textbf{Type:} Manual
+
+\textbf{Refrences} NFR4
+					
+\textbf{Initial State:} Preferences Page
+					
+\textbf{Input/Condition:} Change Language
+					
+\textbf{Output/Result:} Application translated to chosen language
+					
+\textbf{How test will be performed:} Tester will also check to see if a user has the option to change preferred language on an already set-up device. This will also be manually checked and verified by the tester checking that the language has changed.
+
+\item{NFRT15}
+
+\textbf{Type:} Manual
+
+\textbf{Refrences} NFR4
+					
+\textbf{Initial State:} Base user manual  
+					
+\textbf{Input/Condition:} Team translates manuals
+					
+\textbf{Output/Result:} translated manuals
+					
+\textbf{How test will be performed:} The team will hire translators to ensure that each of the primary languages are correctly translated from a base user manual. The base user manual will be written in english.
+
+\item{NFRT16}
+
+\textbf{Type:} Performance
+
+\textbf{Refrences} NFR5
+					
+\textbf{Initial State:} Unopened application, turned off device
+					
+\textbf{Input/Condition:} Open application, turn on device, pair device
+					
+\textbf{Output/Result:} Paired device and application
+					
+\textbf{How test will be performed:} Participants will be given device and application and timed to see if they can set up and use them within 5 minutes. This test will be conducted with 4 people from each age group, and will be considered pass if 3/4 participants from each age group can use the device within 5 minutes.
+
+\item{NFRT17}
+
+\textbf{Type:} Visual
+
+\textbf{Refrences} NFR6
+					
+\textbf{Initial State:} Opened Application
+					
+\textbf{Input/Condition:} N/A
+					
+\textbf{Output/Result:} N/A
+					
+\textbf{How test will be performed:} Test will be conducted with 4 participants from each age group. Participants will be given an application and asked which icon corresponds to which action/function. For each icon they answer correctly, they will receive one point. A total of 5 icons will be asked see appendix 7.2.8. A pass is achieved if all 5 icons are named by 3/4 participants from each age group.
+
+\item{NFRT18}
+
+\textbf{Type:} Recovery Testing
+
+\textbf{Refrences} NFR8
+					
+\textbf{Initial State:} Paired device
+					
+\textbf{Input/Condition:} Take device out of range and back into range
+					
+\textbf{Output/Result:} Device repairs
+					
+\textbf{How test will be performed:} The device will be paired to the hardware initially, by taking the device out of range we will simulate abrupt interruption. It should automatically connect back when back in range, this should not take any longer than 10 seconds after the device is back in range. This test will be performed 10 times with 2 different devices and it should be able to connect back more than 90\% of the time for a pass.
+
+\item{NFRT19}
+
+\textbf{Type:} Performance
+
+\textbf{Refrences} NFR9
+					
+\textbf{Initial State:} Device preconfigured with keywords
+					
+\textbf{Input/Condition:} Keyword
+					
+\textbf{Output/Result:} Haptic Feedback
+					
+\textbf{How test will be performed:} Tester will input keyword sound and record the amount of time to receive haptic feedback from the wearable device. Timer begins as soon as keyword sound is played and stopped when haptic feedback begins. Test is considered a pass if the time recorded for 8/10 measurements is less than 1 second.
+
+\item{NFRT20}
+
+\textbf{Type:} Performance
+
+\textbf{Refrences} NFR9
+					
+\textbf{Initial State:} Application home screen 
+					
+\textbf{Input/Condition:} Button click 
+					
+\textbf{Output/Result:} Corresponding page
+					
+\textbf{How test will be performed:} Helper code will calculate the time between a user input detected and a corresponding change in the UI. The helper code will simulate 100 user inputs spread over all possible places of correct user inputs and record the response times. If the average of the response times is less than 1ms then the test is considered to be a pass.
+
+\item{NFRT21}
+
+\textbf{Type:} Performance
+
+\textbf{Refrences} NFR9
+					
+\textbf{Initial State:} Application pairing screen
+					
+\textbf{Input/Condition:} Being pairing
+					
+\textbf{Output/Result:} Paired device 
+					
+\textbf{How test will be performed:} A set of 5 new bluetooth devices will be introduced to the hardware, on performing the bluetooth connection procedure the connection should be established within a minute for all the devices for the test to pass.
+
+\item{NFRT22}
+
+\textbf{Type:} Recovery
+
+\textbf{Refrences} NFR9
+					
+\textbf{Initial State:} Paired Devices
+					
+\textbf{Input/Condition:} Devices taken out of range and brought back into range
+					
+\textbf{Output/Result:} Repairing of devices
+					
+\textbf{How test will be performed:} A set of 5 pre-existing bluetooth devices will be brought into the pairing range of the device. A tester will time how long it takes each of the devices to reconnect to the application. For this test to pass the average time of all 5 should be $\leq$ 10 seconds.
+
+\item{NFRT23}
+
+\textbf{Type:} Visual
+
+\textbf{Refrences} NFR10
+					
+\textbf{Initial State:} Turned off device
+					
+\textbf{Input/Condition:} N/A
+					
+\textbf{Output/Result:} N/A
+					
+\textbf{How test will be performed:} Visual inspection of finished devices should yield no sight of the battery.
+
+\item{NFRT24}
+
+\textbf{Type:} Stress Testing
+
+\textbf{Refrences} NFR11
+					
+\textbf{Initial State:} Device with preconfigured keywords 
+					
+\textbf{Input/Condition:} Sound clips
+					
+\textbf{Output/Result:} Haptic Feedback
+					
+\textbf{How test will be performed:} A sample set of different sounds (6 different types of sounds with each one supplied 20 times, each time with a random distortion added to make them all digitally different) will be run through a pre-configured classification set. If the output of the module is correct 90\% of the time, it is considered to be a pass.
+
+\item{NFRT25}
+
+\textbf{Type:} Stress Test
+
+\textbf{Refrences} NFR12
+					
+\textbf{Initial State:} Fully charged device
+					
+\textbf{Input/Condition:} Sound clips
+					
+\textbf{Output/Result:} Haptic Feedback
+					
+\textbf{How test will be performed:} The battery will be fully charged on 10 separate devices and a group of 10  testers will use the device for a consecutive 15 hours. The time the devices run out of battery will be recorded. The average battery life of all 10 devices should be 	$>$ 12 hours for the test to be considered a pass.
+
+\item{NFRT26}
+
+\textbf{Type:} Load Testing 
+
+\textbf{Refrences} NFR12
+					
+\textbf{Initial State:} Powered on device with preconfigured keywords 
+					
+\textbf{Input/Condition:} Sound clips
+					
+\textbf{Output/Result:} Haptic Feedback
+					
+\textbf{How test will be performed:} Tester will power on the device for a duration of 5 hours. At 5 randomized time intervals throughout the 5 hours, the tester will insert a keyword and record whether or not the device reacts. Device should react at each interval for the test to be considered a pass.
+
+\item{NFRT27}
+
+\textbf{Type:} Upgrade and Installation Test
+
+\textbf{Refrences} NFR12
+					
+\textbf{Initial State:} Working Application
+					
+\textbf{Input/Condition:} Application goes down
+					
+\textbf{Output/Result:} Email sent to developers
+					
+\textbf{How test will be performed:} Helper code will be used to check if the application is up. If the application goes down the helper code will alert the development team. If the development team does not receive an alert over a one year period then the test will be considered a pass. 
+
+\item{NFRT28}
+
+\textbf{Type:} Upgrade Testing
+
+\textbf{Refrences} NFR15
+					
+\textbf{Initial State:} Application keyword selection page
+					
+\textbf{Input/Condition:} add 10 Keyword
+					
+\textbf{Output/Result:} Keyword added successfully
+					
+\textbf{How test will be performed:} Testers will manually check if the product supports up to 10 keywords 2 years after the launch of the device.
+
+\item{NFRT29}
+
+\textbf{Type:} Visual and Stress Testing
+
+\textbf{Refrences} NFR16
+					
+\textbf{Initial State:} Turned off Device
+					
+\textbf{Input/Condition:} N/A
+					
+\textbf{Output/Result:} N/A
+					
+\textbf{How test will be performed:} Product will be stress tested by a team of testers. Stress tests can include battery drain/charge cycles, Material wear and tear, extensive microphone use etc. Based on results the device should be rated for a lifetime of 5 years for the tests to pass
+
+\item{NFRT30}
+
+\textbf{Type:} Performance
+
+\textbf{Refrences} NFR17
+					
+\textbf{Initial State:} Unpaired Device
+					
+\textbf{Input/Condition:} Setup Device
+					
+\textbf{Output/Result:} N/A
+					
+\textbf{How test will be performed:} Using a sample group of 10 participants each member will be asked to use the device for a duration of 3 days. Participants will then be asked to submit any times that the device inhibited their day to day lives. If 8/10 of the participants did not find the device to inhibit their daily lives then the test is considered a pass.
+
+\item{NFRT31}
+
+\textbf{Type:} Visual
+
+\textbf{Refrences} NFR17
+					
+\textbf{Initial State:} Turned off Device
+					
+\textbf{Input/Condition:} Adjust size
+					
+\textbf{Output/Result:} Size should be adjustable from 6-8 inches
+					
+\textbf{How test will be performed:} Device will be manually inspected to ensure that it is adjustable to a multitude of different wrist sizes, 6 inches to 8.5 inches, (wrist sizes ranging from small to large). 
+
+\item{NFRT32}
+
+\textbf{Type:} Performance and Installation Testing
+
+\textbf{Refrences} NFR17
+					
+\textbf{Initial State:} Uninstalled Application
+					
+\textbf{Input/Condition:} Install Application
+					
+\textbf{Output/Result:} Application Installs Correctly
+					
+\textbf{How test will be performed:} Testers will try to download the application and pair a device on both an IOS and Android device. If both the devices successfully download and pair then the test is considered a pass. 
+
+\item{NFRT33}
+
+\textbf{Type:} Upgrade Test
+
+\textbf{Refrences} NFR20
+					
+\textbf{Initial State:} Turned off device
+					
+\textbf{Input/Condition:} Turn on device, sound clip
+					
+\textbf{Output/Result:} Haptic Feedback
+					
+\textbf{How test will be performed:} Tester will manually try and use the device 24 hours after the software has been updated. If the device functions correctly then the test is considered a pass.
+
+\item{NFRT34}
+
+\textbf{Type:} Visual
+
+\textbf{Refrences} NFR25
+					
+\textbf{Initial State:} Unopened Application
+					
+\textbf{Input/Condition:} Open Application
+					
+\textbf{Output/Result:} N/A
+					
+\textbf{How test will be performed:} A diverse sample group (varying in religion, ethnicity, culture) will be told to examine the code and will be asked to provide any relative feedback about references pertaining to their cultures. If all participants do not find any references the test will be considered a pass. 
+
+\item{NFRT35}
+
+\textbf{Type:} Regulation Testing
+
+\textbf{Refrences} NFR26
+					
+\textbf{Initial State:} Ready to ship product
+					
+\textbf{Input/Condition:} N/A
+					
+\textbf{Output/Result:} N/A
+					
+\textbf{How test will be performed:} An independent team of lawyers will be used to check that the application, device, and the user manual all comply with their corresponding regulations (including licensing agreements). If the team does not find any issues then the test is considered a pass.
+
+
+
+
+
+\end{itemize}
+
+\newpage
+\subsection{Traceability Between Test Cases and Requirements}
+
+\begin{longtable}{| p{.20\textwidth} | p{.50\textwidth} |} 
+  \hline
+  \textbf{Tests}    &   \textbf{Requirements} \\ \hline
+  FRT1 &  FR-1, NFR-12 \\ \hline          
+  FRT2 &  FR-1  \\ \hline
+  FRT3 &   FR-1, NFR-12, NFR-13 \\ \hline
+   FRT4 &   FR-1 \\ \hline
+   FRT5 &  FR-2  \\ \hline
+   FRT6 &  FR-2  \\ \hline
+  FRT7  &  FR-2  \\ \hline
+  FRT8 &  FR-2  \\ \hline
+  FRT9 &  FR-3, NFR-14, NFR-18  \\ \hline
+  FRT10 &  FR-3, NFR-18  \\ \hline
+  FRT11 &  FR-3  \\ \hline
+  FRT12 &  FR-3, NFR-15  \\ \hline
+  FRT13 &  FR-3, NFR-14  \\ \hline
+  FRT14 &  FR-4, NFR-18, NFR-28  \\ \hline
+  FRT15 &  FR-4  \\ \hline
+  FRT16 &  FR-4  \\ \hline
+  FRT17 &  FR-4  \\ \hline
+  FRT18 &  FR-5  \\ \hline
+  FRT19 &  FR-5  \\ \hline
+  NFRT1 &  NFR-1  \\ \hline
+  NFRT2 &  NFR-1  \\ \hline
+  NFRT3 &  NFR-1  \\ \hline
+  NFRT4 &  NFR-1  \\ \hline
+  NFRT5 &  NFR-1  \\ \hline
+  NFRT6 &  NFR-1  \\ \hline
+  NFRT7 &  NFR-2  \\ \hline
+  NFRT8 &  NFR-3  \\ \hline
+  NFRT9 &   NFR-3 \\ \hline
+  NFRT10 &  NFR-3  \\ \hline
+  NFRT11 &  NFR-3  \\ \hline
+  NFRT12 &  NFR-4, NFR-25  \\ \hline
+  NFRT13 &  NFR-4  \\ \hline
+  NFRT14 &  NFR-4  \\ \hline
+  NFRT15 &  NFR-4  \\ \hline
+  NFRT16 &  NFR-5, NFR-7  \\ \hline
+  NFRT17 &  NFR-6  \\ \hline
+  NFRT18 &  NFR-8  \\ \hline
+  NFRT19 &   NFR-9 \\ \hline
+  NFRT20 &  NFR-9  \\ \hline
+  NFRT21 &  NFR-9  \\ \hline
+  NFRT22&  NFR-9  \\ \hline
+  NFRT23 &  NFR-10  \\ \hline
+  NFRT24 &  NFR-11  \\ \hline
+  NFRT25 &  NFR-12  \\ \hline
+  NFRT26 &  NFR-12  \\ \hline
+  NFRT27 &  NFR-12  \\ \hline
+  NFRT28 &  NFR-15 \\ \hline
+  NFRT29 &   NFR-16 \\ \hline
+  NFRT30 &  NFR-17  \\ \hline
+  NFRT31 &   NFR-17 \\ \hline
+  NFRT32 &  NFR-17, NFR-21 \\ \hline
+  NFRT33 &  NFR-20  \\ \hline
+  NFRT34 &  NFR-25  \\ \hline
+  NFRT35 &   NFR-26, NFR-27 \\ \hline
+  \caption{Traceability Between Test Cases and Requirements} % needs to go inside longtable environment
+  \label{tab:myfirstlongtable}
+  \end{longtable}
+\section{Unit Test Description}
+
+\wss{Reference your MIS and explain your overall philosophy for test case
+  selection.}  
+\wss{This section should not be filled in until after the MIS has
+  been completed.}
+
+\subsection{Unit Testing Scope}
+The scope of the unit testing will involve evaluating the microphone, bluetooth, 
+classification, feedback, noise filter, and interface modules to see if they adhere 
+to respective functional and non-functional requirements found in Synesthesia Wear’s 
+SRS document.
+
+\subsection{Tests for Functional Requirements}
+
+\wss{Most of the verification will be through automated unit testing.  If
+  appropriate specific modules can be verified by a non-testing based
+  technique.  That can also be documented in this section.}
+
+\subsubsection{Microphone Module}
+
+\wss{Include a blurb here to explain why the subsections below cover the module.
+  References to the MIS would be good.  You will want tests from a black box
+  perspective and from a white box perspective.  Explain to the reader how the
+  tests were selected.}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Functional, Dynamic, and Manual. \\
+    \hline
+    Initial State  &  No data in buffer and requesting microphone input.\\
+    \hline
+    Input &   Sample Recording.  \\
+    \hline
+    Output &   The sample recording in the memory buffer.  \\
+    \hline
+    Test Case Derivation &   The output has to be the digital representation of the input.\\
+    \hline
+    How test will be performed & 3 Different sample sounds will be supplied near the microphone. Will compare the output with expected output. The test succeeds if all the outputs match the expected outputs within some tolerance.     \\
+    \hline
+\end{tabular}
+    
+\end{enumerate}
+
+\subsubsection{Bluetooth Module}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Functional, Dynamic, and Manual. \\
+    \hline
+    Initial State  &  Data in buffer and send request received. \\
+    \hline
+    Input &   Digital sound recording.  \\
+    \hline
+    Output &   The same digital sound recording at the receiver.  \\
+    \hline
+    Test Case Derivation &   The module is a communication module and no change has been made to the data. Hence the data has to be the same as the output.\\
+    \hline
+    How test will be performed & A large audio recording will be sent to the data buffer of the sender and send request will be asserted. The receiver should receive the data. The data will be compared manually to check if the test was passed.\\
+    \hline
+\end{tabular}
+
+\item{test-id2\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Functional, Dynamic, and Manual. \\
+    \hline
+    Initial State  &  Classification detected asserted. \\
+    \hline
+    Input &   Sample classification signal asserted on software.  \\
+    \hline
+    Output &   Feedback signal asserted on hardware.  \\
+    \hline
+    Test Case Derivation &   The module is a communication module, and the classification signal received from the software has to tie into its respective feedback signal.\\
+    \hline
+    How test will be performed & A classification signal will be asserted manually in the software, its respective feedback signal needs to be asserted in the hardware for the test to pass.\\
+    \hline
+\end{tabular}
+
+\end{enumerate}
+
+
+\subsubsection{Classification Module}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Functional, Dynamic, and Automatic. \\
+    \hline
+    Initial State  &  Sound classification settings already preconfigured.\\
+    \hline
+    Input &   Stored sound data in the memory buffer.  \\
+    \hline
+    Output &   Classified sound data.  \\
+    \hline
+    Test Case Derivation &   The output should be digital sound data that has been classified under one of the categories that were preconfigured in the sound classification settings.\\
+    \hline
+    How test will be performed & Sound data from the Microphone module testing will be used for this test. The classification code ingrained in the Synesthesia Wear app will automatically try to classify stored sound data in memory. The test succeeds if all outputs are classified under their expected categories.\\
+    \hline
+\end{tabular}
+
+\item{test-id2\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Functional, Dynamic, and Manual. \\
+    \hline
+    Initial State  &  Sound classification settings are empty or already preconfigured. \\
+    \hline
+    Input &   New classification settings.  \\
+    \hline
+    Output &   Classification settings have been changed.  \\
+    \hline
+    Test Case Derivation &   The output should match the new sound classification settings verbatim.\\
+    \hline
+    How test will be performed & New sound classification settings will be inputted into a menu on the Synesthesia Wear app and a save button will be used to preserve those settings. The test succeeds if after going back to the sound classification settings menu, the newly inputted settings are displayed.\\
+    \hline
+\end{tabular}
+
+\end{enumerate}
+
+
+\subsubsection{Feedback Module}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Functional, Dynamic, and Manual. \\
+    \hline
+    Initial State  &  Classification received. \\
+    \hline
+    Input &   A feedback signal is asserted.  \\
+    \hline
+    Output &   Vibration detected at the end that coincides with the feedback signal.  \\
+    \hline
+    Test Case Derivation &   Tests how our feedback structure performs. \\
+    \hline
+    How test will be performed & A feedback signal pertaining to a particular classification is asserted, the output has to be equal to the set vibration specified by the classification. \\
+    \hline
+\end{tabular}
+
+\end{enumerate}
+
+\subsection{Tests for Nonfunctional Requirements}
+
+\wss{If there is a module that needs to be independently assessed for
+  performance, those test cases can go here.  In some projects, planning for
+  nonfunctional tests of units will not be that relevant.}
+
+\wss{These tests may involve collecting performance data from previously
+  mentioned functional tests.}
+
+\subsubsection{Microphone Module}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Dynamic and Manual. \\
+    \hline
+    Initial State  &  No data in buffer. \\
+    \hline
+    Input &   Sample recording. \\
+    \hline
+    Output &   The sample recording in the memory buffer.  \\
+    \hline
+    Test Case Derivation &   The output has to be within at least a 95\% confidence level of the input. \\
+    \hline
+    How test will be performed & 3 different sounds found online will be taken and played on some speakers that will project the sounds into the microphone. Taking the initial sound files and the sound data from the microphone, an online software tool will compare the sound data and measure their similarities/confidence level. The test succeeds if the similarities/confidence level is at least 95\%. \\
+    \hline
+\end{tabular}
+
+\item{test-id2\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Dynamic and Automatic. \\
+    \hline
+    Initial State  &  No data in buffer and the device is powered on. \\
+    \hline
+    Input &   Random ambient sound. \\
+    \hline
+    Output &   Continuously updated sound buffer with sampling frequency fs.  \\
+    \hline
+    Test Case Derivation &   Tests if the device is able to continuously update when turned on. \\
+    \hline
+    How test will be performed & Random sounds will be inserted into the microphone. The sound buffer will be copied at the frequency of the sampling frequency into a file. The device has to be able to update the sound buffer continuously until the device is turned off to receive a conditional pass. For a complete pass, all the sound data has to have a distortion of less than 5\%. \\
+    \hline
+\end{tabular}
+
+\end{enumerate}
+
+
+\subsubsection{Bluetooth Module}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Dynamic and Manual. \\
+    \hline
+    Initial State  &  Bluetooth device not paired. \\
+    \hline
+    Input &   Introduce a new bluetooth connection. \\
+    \hline
+    Output &   Connect with the bluetooth connection in under a minute.  \\
+    \hline
+    Test Case Derivation &   The device has to be able to connect with the hardware easily. \\
+    \hline
+    How test will be performed & A new bluetooth device will be introduced to the hardware, on performing the bluetooth connection procedure the connection should be established within a minute for the test to pass. \\
+    \hline
+\end{tabular}
+
+\item{test-id2\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Dynamic and Manual. \\
+    \hline
+    Initial State  &  Bluetooth device not connected but paired. \\
+    \hline
+    Input &   Disconnect bluetooth abruptly. \\
+    \hline
+    Output &   Auto-reconnection of the bluetooth.  \\
+    \hline
+    Test Case Derivation &   The device has to be able to reconnect without any issues. \\
+    \hline
+    How test will be performed & The device will be paired to the hardware initially, by taking the device out of range we will simulate abrupt interruption. It should automatically connect back when back in range, this should not take any longer than 10 seconds after the device is back in range. \\
+    \hline
+\end{tabular}
+
+\end{enumerate}
+
+
+\subsubsection{Noise Filter Module}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Dynamic and Automatic. \\
+    \hline
+    Initial State  &  Is empty and waiting for an input to process. \\
+    \hline
+    Input &   Digital data with one or more sounds. \\
+    \hline
+    Output &   The same digital sound recording but with less noise.  \\
+    \hline
+    Test Case Derivation &   The background noise in the sound file is reduced/removed and a main/singular sound is more notable than others. \\
+    \hline
+    How test will be performed & After receiving sound data over bluetooth, Synesthesia Wear’s app will automatically send this data over to the corresponding device’s noise filtering hardware that will process and return a filtered version of the data. This test passes if it is clear that there is notably less noise in the filtered sound file compared to the original one. \\
+    \hline
+\end{tabular}
+
+\end{enumerate}
+
+
+\subsubsection{Classification Module}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Dynamic and Automatic. \\
+    \hline
+    Initial State  &  Waiting for sound input and classification settings to be preconfigured. \\
+    \hline
+    Input &   Sample sounds that fall into classifications and those that do not. \\
+    \hline
+    Output &   Classification signals asserted for sounds that are in the classification.  \\
+    \hline
+    Test Case Derivation &   Tests the performance and effectiveness of the classification module to be able to distinguish classified and non-classified signals. \\
+    \hline
+    How test will be performed & A sample set of different sounds (6 different types of sounds with each one supplied 20 times, each time with a random distortion added to make them all digitally different) will be run through a pre-configured classification set. If the output of the module is correct 90\% of the time, it is considered to be a pass. \\
+    \hline
+\end{tabular}
+
+\end{enumerate}
+
+
+\subsubsection{Feedback Module}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Dynamic and Manual. \\
+    \hline
+    Initial State  &  Classification received. \\
+    \hline
+    Input &   A feedback signal is asserted. \\
+    \hline
+    Output &   Vibration detected at the end that coincides with the feedback signal and is not intrusive.  \\
+    \hline
+    Test Case Derivation &   Tests how our feedback structure performs. \\
+    \hline
+    How test will be performed & A feedback signal pertaining to a particular classification is asserted such that the output has to be equal to the set vibration specified by the classification. A sample group of 5 will be asked to feel the vibration and then reply if said vibration was sufficient and non-intrusive. If 4 of the 5 answers are yes, the test is passed. \\
+    \hline
+\end{tabular}
+
+\end{enumerate}
+
+
+
+\subsubsection{Interface Module}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Structural, Dynamic and Manual. \\
+    \hline
+    Initial State  &  N/A. \\
+    \hline
+    Input &   Sample group user inputs. \\
+    \hline
+    Output &   UI should behave as required in terms of appearance and style.  \\
+    \hline
+    Test Case Derivation &   Gathering information on the wants of the users to ensure that the interface adheres to their preferences and that they are pleased with their user experiences. \\
+    \hline
+    How test will be performed & A sample group of 5 people will have the opportunity to interact with the UI and device first. They will later be asked questions regarding certain features of the product. These questions are listed in the appendix. If a satisfying result is obtained over the sample group, then the test is passed. This test has multiple subsections where each can be passed or failed separately. \\
+    \hline
+\end{tabular}
+
+\item{test-id2\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Dynamic and Automatic. \\
+    \hline
+    Initial State  &  User interface opened up. \\
+    \hline
+    Input &   User input. \\
+    \hline
+    Output &   UI response within 1ms.  \\
+    \hline
+    Test Case Derivation &   The device has to be able to respond quickly to any user input. \\
+    \hline
+    How test will be performed & It will be too hard to measure the response time manually as most humans have a response time greater than 1ms. Hence this test will be done with the help of helper code which will calculate the time between a user input detected and a corresponding change in the UI. \\
+    \hline
+\end{tabular}
+
+\item{test-id3\\}
+
+\begin{tabular}{ |p{5cm}||p{7cm}| }
+    \hline
+    Type & Dynamic and Manual. \\
+    \hline
+    Initial State  &  User interface opened up. \\
+    \hline
+    Input &   User input. \\
+    \hline
+    Output &   Expected UI response on all the different devices.  \\
+    \hline
+    Test Case Derivation &   The UI has to be able to work the same on all platforms. \\
+    \hline
+    How test will be performed & The UI will be installed on different systems (Android, Windows, IOS). If it is capable of all functionality within all the platforms, it receives a pass. \\
+    \hline
+\end{tabular}
+
+\end{enumerate}
+
+
+\subsection{Traceability Between Test Cases and Modules}
+
+\wss{Provide evidence that all of the modules have been considered.}
+				
+\bibliographystyle{plainnat}
+
+\bibliography{../../refs/References}
+
+\newpage
+
+\section{Appendix}
+
+This is where you can place additional information.
+
+\subsection{Symbolic Parameters}
+
+The definition of the test cases will call for SYMBOLIC\_CONSTANTS.
+Their values are defined in this section for easy maintenance.
+
+\subsection{Usability Survey Questions?}
+
+\subsubsection{Appearance Requirements}
+
+\begin{enumerate}[noitemsep, nolistsep]
+\item{How did the finish and look of the device appeal to you?\\}
+\item{How was the appearance of different pages in the UI software?\\}
+
+\end{enumerate}
+
+\noindent Expected answers for pass condition: Satisfied or better for both questions above.
+
+
+\subsubsection{Style Requirements}
+
+\begin{enumerate}[noitemsep, nolistsep]
+\item{Did you feel that there was consistency between different elements of the UI?\\}
+
+\end{enumerate}
+
+\noindent Expected answers for pass condition: Yes.
+
+
+\subsubsection{Ease of Use Requirements}
+
+\begin{enumerate}[noitemsep, nolistsep]
+\item{Out of 10, how easy do you find it to interact with the UI?\\}
+\item{Out of 10, what would you rate the usability of the system?\\}
+\item{What do you find most frustrating about the system?\\}
+
+\end{enumerate}
+
+\noindent Expected answers for pass condition: For the first two questions, the average score has to be greater than 7. The last question should not have the same answer repeated between different members. If so, it would suggest an issue with the system. 
+
+
+\subsubsection{Personalization and Internationalization Requirements}
+
+\begin{enumerate}[noitemsep, nolistsep]
+\item{Were you satisfied with the personalization choices of the UI?\\}
+
+\end{enumerate}
+
+\noindent Expected answers for pass condition: Should be yes for 85\% of the sample group. 
+
+
+\subsubsection{Learning Requirements}
+
+\begin{enumerate}[noitemsep, nolistsep]
+\item{How long did it take you to understand and use the software on your own?\\}
+
+\end{enumerate}
+
+\noindent Expected answers for pass condition: Should not be longer than 5 minutes for each person in the sample group. 
+
+
+\subsubsection{Understandability and Politeness Requirements}
+
+\begin{enumerate}[noitemsep, nolistsep]
+\item{How difficult was it to read information off the screen?\\}
+\item{Were you satisfied with the arrangement of content on the screen?\\}
+\item{Were you displeased with the language or content used on the UI?\\}
+
+\end{enumerate}
+
+\noindent Expected answers for pass condition: For the first condition, the difficulty should not be more than 6 out of 10. For the second condition, it should be yes for 85\% of the sample group. For the third condition, it should be no for all members of the sample group.
+
+\subsubsection{Additional Material for Non-Functional Requirement Test 7}
+\noindent Answer all questions on a scale of 1-6 
+\begin{enumerate}
+  \item Does the application contain consistent buttons throughout?
+  \item Does the device have a uniform finish and consistent buttons?
+  \item Do the colors of the application and the device follow a consistent color palette?
+  \item Does the device automatically begin a pairing process when the corresponding buttons are inputted?
+  \item Is the differing parts of the UI including different pages, buttons etc. easily identifiable and responsive? 
+\end{enumerate}
+
+\subsubsection{Additional Material for Non-Functional Requirement Test 17}
+\noindent Specific icons participants will be asked to name:
+\begin{itemize}
+  \item Bluetooth/setup icon
+  \item Settings icon
+  \item Go back icon
+  \item Login icon
+  \item Logout icon
+\end{itemize}
+
+
+\newpage{}
+\section*{Appendix --- Reflection}
+This section deals with what knowledge, experiences, and approaches each team member will need to acquire/pursue so that the verification and validation of Synesthesia Wear can be completed successfully.
+To start off, the collective knowledge and skills that the team would need to acquire includes dynamic testing knowledge, static testing knowledge, Mocha skills, Mongo Orchestration skills, and ESLint skills.
+With that in mind, an approach that we could use to learn/master the new knowledge or skills would be scouring the internet for resources, videos, websites, blogs, or any other notable sources for relevant information.
+Another approach would be to look through relevant books at McMaster's library or any other library to see if there is any applicable details that could be used for this document.
+Furthermore, one could also master their new skills via practice and trial-and-error by following tutorials and then trying to do them in real-time.
+Lastly, a final approach could be to find someone with relevant expertise and ask them for advice or some lessons on relevant skills/knowledge that would be beneficial for the completion of the Verification and Validation of our project.
+
+
+
+\subsection*{Jordan Bierbrier}
+The knowledge that Jordan needs to acquire during this project is Static Testing knowledge.
+This is because he needs to be able to theoretically test whether the signal processing aspects of the product will work based on an examination of the code.
+To further clarify, the hardware needed for the signal processing may not always be set up for testing.
+So, Jordan should learn Static Testing knowledge so that he can still test at all times even when the hardware is not set up and the code is not running.
+To add on, although the actual results of the signal processing may not be able to be verified, Jordan can still test the logic of the code such as the flow of signals over bluetooth from the bracelet to the app.
+With all this in mind, the approaches Jordan should take would include scouring the internet for resources on static testing knowledge as well as asking experts with testing experience to see if they have any advice.
+These two approaches were chosen because they would be the most effective and efficient methods of learning static testing knowledge.
+
+\subsection*{Azriel Gingoyon}
+The knowledge that Azriel needs to acquire during this project is Mocha skills.
+This is because he needs to test whether the hardware components are functioning properly and are able to communicate with the app as expected.
+To further clarify, all of the hardware needs to be incorporated properly so that everything is working properly.
+So, if the design and hardware are all good, the communication to the hardware should not have too many issues, and so this testing platform would help with that.
+With all this in mind, the approaches Azriel should take would include scouring the internet for resources on Mocha as well as trying trial-and-error/practice to further solidify the Mocha skills that he is learning. 
+
+\subsection*{Taranjit Lotey}
+To search the McMaster professor profolios form previous years to find experts in our relevant topics which require attention. Approach one would be asking the professor of our Captsone project to suggest professors which would align with our needs the best. Approach two would be going back to previous courses and find out which professors taught topics related to the issue/interest at hand.
+
+
+\subsection*{Udeep Shah}
+Find information required to successfully finish research and understanding the topic I would reach for the help of relatable books. This would be possible by using online library search engines to find matching summaries. Also use the help of online resources to find which books have problems or solutions related to the one at hand.
+
+\subsection*{Abraham Taha}
+The knowledge that Abraham needs to acquire during this project is Dynamic Testing knowledge.
+This is because he needs to be able to continuously test whether the app aspects of the product are working as expected.
+To further clarify, as the app is continuously being developed to meet all requirements and preferences of our users, it is essential to ensure that other aspects of the app are still functioning properly.
+With all this in mind, the approaches Abraham should take would include scouring the internet for resources on dynamic testing knowledge as well as asking experts with testing experience to see if they have any advice.
+These two approaches were chosen because they are the most effective and efficient methods of learning dynamic testing knowledge.
+\end{document}
