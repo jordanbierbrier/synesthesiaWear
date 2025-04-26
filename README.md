@@ -60,9 +60,9 @@ A **working prototype** successfully detected fire alarms and recognized several
 ---
 
 ## 👨‍💻 Developers
+- Jordan Bierbrier
 - Abraham Taha
 - Azriel Gingoyon
-- Jordan Bierbrier
 - Taranjit Lotey
 - Udeep Shah
 
