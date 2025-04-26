@@ -242,4 +242,4 @@ TSWLatexianTemp*
 *.spl
 
 # DS_Store
-*.DS_Store
+**/.DS_Store
