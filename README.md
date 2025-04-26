@@ -1,6 +1,12 @@
+
+
 # Synesthesia Wear
 
-> Making sound visible: A wearable to detect environmental sounds and provide sensory feedback.
+<p align="center">
+  <img src="docs/Presentations/EXPO/logo.png" alt="synesthesiaWear Logo" width="300"/>
+</p>
+
+> Feel the Sound: A wearable device to detect environmental sounds and provide sensory feedback.
 
 ---
 
@@ -46,7 +52,7 @@
 
 <!-- >[![View Poster](docs/poster_thumbnail.png)](docs/poster.pdf) -->
 
-> ![View Poster](docs/Presentations/EXPO/Poster.pdf)
+> ![View Poster](docs/Presentations/EXPO/Poster.png)
 
 ---
 
