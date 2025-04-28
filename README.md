@@ -2,6 +2,8 @@
 
 # Synesthesia Wear
 
+![Tracking Example](docs/UserGuide/demo.gif)
+
 <p align="center">
   <img src="docs/Presentations/EXPO/logo.png" alt="synesthesiaWear Logo" width="300"/>
 </p>
